@@ -14,7 +14,12 @@
 
       <div id="error-container"></div>
       <form id="question-form">
-        <input type="text" id="ip-address" placeholder="Enter IP Address" />
+        <div style="display: flex">
+          <input type="text" id="ip-address" placeholder="Enter IP Address" />
+          <select id="model-dropdown">
+            <option selected disabled>No model</option>
+          </select>
+        </div>
         <input type="text" id="model-name" placeholder="Enter Model Name" />
         <textarea
           rows="4"
@@ -36,5 +41,6 @@
     <script src="./chat-history.js"></script>
     <script src="./chat.js"></script>
     <script src="./persist.js"></script>
+    <script src="./handle-model.js"></script>
   </body>
 </html>
