@@ -35,7 +35,11 @@ const getModelInformation = async () => {
     return;
   }
 
-  populateSystemPrompt((await response.json()).system);
+  const responseJson = await response.json();
+
+  window.can_use_tools = responseJson.capabilities.includes("tools");
+
+  populateSystemPrompt(responseJson.system);
 };
 
 /**

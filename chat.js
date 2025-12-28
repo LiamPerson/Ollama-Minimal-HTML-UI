@@ -1,3 +1,26 @@
+const buildTools = () => {
+  return [
+    {
+      type: "function",
+      function: {
+        name: "search_the_web",
+        description:
+          "Searches the Web using a search engine and gives results in JSON",
+        parameters: {
+          type: "object",
+          properties: {
+            query: {
+              type: "string",
+              description: "The search query",
+            },
+          },
+          required: ["query"],
+        },
+      },
+    },
+  ];
+};
+
 document
   .getElementById("question-form")
   .addEventListener("submit", async (event) => {
@@ -26,26 +49,7 @@ document
           model: modelName,
           date: Date.now(),
           messages: window.chat_history,
-          tools: [
-            {
-              type: "function",
-              function: {
-                name: "search_the_web",
-                description:
-                  "Searches the Web using a search engine and gives results in JSON",
-                parameters: {
-                  type: "object",
-                  properties: {
-                    query: {
-                      type: "string",
-                      description: "The search query",
-                    },
-                  },
-                  required: ["query"],
-                },
-              },
-            },
-          ],
+          tools: window.can_use_tools ? buildTools() : undefined,
         }),
       });
 
