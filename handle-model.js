@@ -52,5 +52,7 @@ modelDropdown.addEventListener("change", () => {
   const selectedModel = modelDropdown.value;
   if (selectedModel) {
     modelInput.value = selectedModel;
+    // Re-trigger the change as other listeners won't detect the change as it is programmatic and not user-driven.
+    modelInput.dispatchEvent(new Event("change"));
   }
 });
