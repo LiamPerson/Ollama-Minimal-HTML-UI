@@ -9,6 +9,10 @@
   </head>
   <body>
     <h1>Ask a Question</h1>
+    <details>
+      <summary>Model System Prompt</summary>
+      <textarea rows="10" id="system-prompt"></textarea>
+    </details>
     <main>
       <div id="history"></div>
       <div id="current-response" class="history assistant working"></div>
@@ -43,5 +47,6 @@
     <script src="./chat.js"></script>
     <script src="./persist.js"></script>
     <script src="./handle-model.js"></script>
+    <script src="./modify-model-system.js"></script>
   </body>
 </html>

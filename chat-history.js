@@ -1,4 +1,9 @@
+window.chat_system_prompt_default = `The current date is: ${new Date()} \n The user's browser useragent is: ${
+  navigator.userAgent
+}`;
 /**
+ * The first message is always the system to ensure you can modify the system prompt.
+ *
  * Format:
  * [
  *      {
@@ -13,10 +18,8 @@
  */
 window.chat_history = [
   {
-    role: "user",
-    content: `The current date is: ${new Date()} \n The user's browser useragent is: ${
-      navigator.userAgent
-    }`,
+    role: "system",
+    content: window.chat_system_prompt_default,
   },
 ];
 const historyContainer = document.getElementById("history");
