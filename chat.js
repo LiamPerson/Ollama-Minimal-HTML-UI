@@ -26,6 +26,26 @@ document
           model: modelName,
           date: Date.now(),
           messages: window.chat_history,
+          tools: [
+            {
+              type: "function",
+              function: {
+                name: "search_the_web",
+                description:
+                  "Searches the Web using a search engine and gives results in JSON",
+                parameters: {
+                  type: "object",
+                  properties: {
+                    query: {
+                      type: "string",
+                      description: "The search query",
+                    },
+                  },
+                  required: ["query"],
+                },
+              },
+            },
+          ],
         }),
       });
 

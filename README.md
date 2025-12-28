@@ -41,8 +41,18 @@ This repository has some dependence on third-parties for Markdown support. If yo
 
 ## Chat History Initial Message
 
-In `chat-history.js`, there is an initial message that gives the AI information about you such as the date, timestamp, and browser agent. This can be useful for using AI to help you build stuff. If you don't want this functionality, just delete the initial message. Simple as that.
+In `chat-history.js` and across `handle-model.js`, there is an initial message sent to the AI as the system prompt. This uses the system prompt as per your Ollama modelfile along with dynamic information about you such as the date, timestamp, and browser agent.
+
+This can be useful for using AI to help you build stuff. If you don't the system prompt to include the dynamic information mentioned (date, timestamp, etc), just remove the value for the window variable titled `chat_system_prompt_default` in code. Simple as that.
 
 ## Contributing
 
 Feel free to fork this repository and contribute by opening a pull request. If you find any issues or have suggestions, please open an issue.
+
+### `window` variables
+
+- `chat_system_prompt_default` the default system message mentioned in _Chat History Initial Message_
+- `chat_history` array of objects containing the messages sent in the current session
+- `can_use_tools` boolean of whether or not the current model can use tools
+- `addQuestion` function that adds a question to the chat history
+- `addResponse` function that adds a response to the chat history
